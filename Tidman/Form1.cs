@@ -10,7 +10,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using System.Threading;
 
-namespace WindowsFormsApplicationTest {
+namespace TidMan {
     public partial class Form1 : Form {
         private int data;
         private CultureInfo culture;

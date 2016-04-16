@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplicationTest
+﻿namespace TidMan
 {
     partial class Form1
     {
