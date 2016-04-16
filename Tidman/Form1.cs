@@ -29,14 +29,15 @@ namespace WindowsFormsApplicationTest {
                 data = 1;
             }
 
-            DateTime localDate = DateTime.Now;
-            finished.Text = localDate.ToLongTimeString();
-
             if (resting.Checked) {
-                countDownTimer.Interval = 1000 * 1; //60 seconds..
+                countDownTimer.Interval = 1000 * 60; //60 seconds..
             }else {
-                countDownTimer.Interval = 1000 * 1 * 3; //60 seconds..
+                countDownTimer.Interval = 1000 * 60 * 3; //60 seconds..
             }
+
+            DateTime localDate = DateTime.Now;            
+            localDate = localDate.AddMinutes(countDownTimer.Interval/1000);
+            finished.Text = localDate.ToLongTimeString();
 
             countDownTimer.Tick += new EventHandler(tick);
             countDownTimer.Start();
