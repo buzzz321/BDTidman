@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 
 namespace TidMan {
     public partial class Form1 : Form {
         private int data;
-        private CultureInfo culture;
-        public Form1()
+         public Form1()
         {
-            culture = new CultureInfo(Thread.CurrentThread.CurrentCulture.Name, true);
-            InitializeComponent();
+             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,12 +34,17 @@ namespace TidMan {
                 countDownTimer.Interval = 1000 * 60 * 3; //60 seconds..
             }
 
+            var endTime = (countDownTimer.Interval / 1000 * data) / 60;
             DateTime localDate = DateTime.Now;            
-            localDate = localDate.AddMinutes(countDownTimer.Interval/1000);
+            localDate = localDate.AddMinutes((countDownTimer.Interval / 1000 * data) / 60);
             finished.Text = localDate.ToLongTimeString();
 
             countDownTimer.Tick += new EventHandler(tick);
             countDownTimer.Start();
+
+            using (var soundPlayer = new SoundPlayer(@"c:\Windows\Media\chimes.wav")) {
+                soundPlayer.Play(); // can also use soundPlayer.PlaySync()
+            }
         }
 
         private void tick(object sender, EventArgs e)
@@ -52,6 +56,9 @@ namespace TidMan {
             }
             else {
                 countDownTimer.Stop();
+                using (var soundPlayer = new SoundPlayer(@"c:\Windows\Media\chimes.wav")) {
+                    soundPlayer.Play(); // can also use soundPlayer.PlaySync()
+                }
             }
         }
 

@@ -37,7 +37,7 @@
             this.counter = new System.Windows.Forms.Label();
             this.countDownTimer = new System.Windows.Forms.Timer(this.components);
             this.resting = new System.Windows.Forms.CheckBox();
-            this.resetButton = new System.Windows.Forms.Button();
+            this.stopButton = new System.Windows.Forms.Button();
             this.finished = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -109,15 +109,15 @@
             this.resting.UseVisualStyleBackColor = true;
             this.resting.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // resetButton
+            // stopButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(96, 122);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(75, 23);
-            this.resetButton.TabIndex = 7;
-            this.resetButton.Text = "reset";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.buttonReset_Click);
+            this.stopButton.Location = new System.Drawing.Point(96, 122);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(75, 23);
+            this.stopButton.TabIndex = 7;
+            this.stopButton.Text = "stop";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // finished
             // 
@@ -143,7 +143,7 @@
             this.ClientSize = new System.Drawing.Size(194, 167);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.finished);
-            this.Controls.Add(this.resetButton);
+            this.Controls.Add(this.stopButton);
             this.Controls.Add(this.resting);
             this.Controls.Add(this.counter);
             this.Controls.Add(this.label2);
@@ -168,7 +168,7 @@
         private System.Windows.Forms.Label counter;
         private System.Windows.Forms.Timer countDownTimer;
         private System.Windows.Forms.CheckBox resting;
-        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.TextBox finished;
         private System.Windows.Forms.Label label3;
     }
